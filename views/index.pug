@@ -1,8 +1,16 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-
-
-
+doctype html
+html(lang='en')
+  include common/head.pug
+  +head("Online-Shop")
+  body
+    header
+      include common/navbar.pug
+      +navbar(user)
+      .container
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            h1.mb-3 Online Shop
+            p.lead Where u can buy everything
+            p.lead.mb-4 Sign up and get started today.
+    include common/footer.pug
+    +footer()
