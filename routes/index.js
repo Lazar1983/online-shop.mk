@@ -3,6 +3,7 @@ var router = express.Router();
 
 let index = require('../controllers/index');
 let user = require('../controllers/user');
+let {isLoggedIn, hasAuth} = require('../middleware/hasAuth.js');
 
 router.get('/login', user.show_login);
 router.get('/signup', user.show_signup);
@@ -13,5 +14,6 @@ router.get('/logout', user.logout);
 
 /* GET home page. */
 router.get('/', index.index);
+
 
 module.exports = router;

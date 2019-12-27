@@ -1,4 +1,3 @@
-
 let models = require("../models");
 let bcrypt = require("bcrypt");
 const passport = require('passport');
@@ -18,6 +17,7 @@ exports.show_signup = function(req, res, next) {
 const rerender_signup = function(errors, req, res, next) {
 	res.render('user/signup', { formData: req.body, errors: errors});
 }
+
 const generateHash = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
 }
@@ -65,6 +65,7 @@ exports.login = function(req, res, next) {
 		failureFlash: true
 	})(req, res, next);
 }
+
 exports.logout = function(req, res, next) { 
 	req.logout();
 	req.session.destroy();
